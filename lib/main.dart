@@ -66,71 +66,66 @@ class _CalculoMasaState extends State<CalculoMasa> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Column(
+            Text(
+              "Altura",
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  "Altura",
+                  inAltura.toStringAsFixed(1),
+                  style: TextStyle(
+                    fontSize: 50,
+                  ),
+                ),
+                Text(
+                  "cm",
                   style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      inAltura.toStringAsFixed(1),
-                      style: TextStyle(
-                        fontSize: 50,
-                      ),
-                    ),
-                    Text(
-                      "cm",
-                      style:
-                          TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
-                    )
-                  ],
-                ),
-                Slider(
-                  value: inAltura,
-                  min: 0,
-                  max: 300,
-                  onChanged: (cm) {
-                    inAltura = cm;
-                    setState(() {});
-                  },
                 )
               ],
             ),
+            Slider(
+              value: inAltura,
+              min: 0,
+              max: 300,
+              onChanged: (cm) {
+                inAltura = cm;
+                setState(() {});
+              },
+            ),
             Divider(),
-            Column(
+            Text(
+              "Peso",
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  "Peso",
+                  inKg.toStringAsFixed(1),
+                  style: TextStyle(
+                    fontSize: 50,
+                  ),
+                ),
+                Text(
+                  "Kg",
                   style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      inKg.toStringAsFixed(1),
-                      style: TextStyle(
-                        fontSize: 50,
-                      ),
-                    ),
-                    Text(
-                      "Kg",
-                      style:
-                          TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
-                    )
-                  ],
-                ),
-                Slider(
-                  value: inKg,
-                  min: 0,
-                  max: 500,
-                  onChanged: (kg) {
-                    inKg = kg;
-                    setState(() {});
-                  },
                 )
               ],
+            ),
+            Slider(
+              value: inKg,
+              min: 0,
+              max: 500,
+              onChanged: (kg) {
+                inKg = kg;
+                setState(() {});
+              },
             ),
             Divider(),
             Container(
